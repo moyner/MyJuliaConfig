@@ -5,6 +5,10 @@ I recommend the following packages in your base environment: `AbbreviatedStackTr
 print("Julia with $(Threads.nthreads()) threads: Running custom startup... ")
 # For abbreviated stack traces, loaded later
 ENV["JULIA_STACKTRACE_MINIMAL"] = true
+# Not sure if this matters at the moment
+ENV["OPENBLAS_NUM_THREADS"] = 1
+using LinearAlgebra
+BLAS.set_num_threads(1)
 using Revise
 print("Ok.\n")
 # Put dev'd repos somewhere specific instaed of `./julia/dev`
