@@ -25,6 +25,13 @@ ENV["JULIA_STACKTRACE_MINIMAL"] = true
 end
 ```
 
+## Skipping precompilation for dev'd packages
+It is convenient to skip precompilation if you are actually developing the packages. Here's my setup:
+```julia
+using SnoopPrecompile, Preferences
+set_preferences!(SnoopPrecompile, "skip_precompile" => ["Jutul", "JutulDarcy"])
+```
+
 # Julia setup
 - Julia is most easily installed via [Juliaup](https://github.com/JuliaLang/juliaup) which is planned to be the official version manager. This is available in the Windows store as [Julia published by Julia Computing, Inc](https://github.com/JuliaLang/juliaup). There's also [Jill](https://github.com/abelsiqueira/jill) which makes installing the latest verison of Julia on Linux and setting up the correct paths very quick.
 - I use [VSCode](https://code.visualstudio.com/) with the [Julia VSCode extension](https://www.julia-vscode.org/).
