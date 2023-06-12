@@ -9,7 +9,8 @@ using LinearAlgebra
 BLAS.set_num_threads(1)
 using Revise
 # Put dev'd repos somewhere specific instead of `./julia/dev`
-ENV["JULIA_PKG_DEVDIR"] = "~/git"
+# Note: You should substitute your own home dir here :)
+ENV["JULIA_PKG_DEVDIR"] = "/home/moyner/git"
 print("Ok.\n")
 ``` 
 ## Shorter stack traces
