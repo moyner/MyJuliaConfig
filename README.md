@@ -27,10 +27,10 @@ end
 ```
 
 ## Skipping precompilation for dev'd packages
-It is convenient to skip precompilation if you are actually developing the packages. Here's my setup:
+It is convenient to skip precompilation if you are actually developing the packages. See [this page for more information](https://julialang.github.io/PrecompileTools.jl/stable/#Package-developers:-reducing-the-cost-of-precompilation-during-development). Here's my setup for `JutulDarcy` that has a long precompilation workload:
 ```julia
-using SnoopPrecompile, Preferences
-set_preferences!(SnoopPrecompile, "skip_precompile" => ["Jutul", "JutulDarcy"])
+using JutulDarcy, Preferences
+set_preferences!(JutulDarcy, "precompile_workload" => false; force=true)
 ```
 
 # Julia setup
