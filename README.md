@@ -8,23 +8,11 @@ ENV["OPENBLAS_NUM_THREADS"] = 1
 using LinearAlgebra
 BLAS.set_num_threads(1)
 using Revise
-# Put dev'd repos somewhere specific instead of `./julia/dev`
+# Put dev'd repos somewhere specific instead of `~/.julia/dev`
 # Note: You should substitute your own home dir here :)
 ENV["JULIA_PKG_DEVDIR"] = "/home/moyner/git"
 print("Ok.\n")
 ``` 
-## Shorter stack traces
-You can also add  [`AbbreviatedStackTraces`](https://github.com/BioTurboNick/AbbreviatedStackTraces.jl) (+`Suppressor` for loading) to the base environment and add the following to your startup file:
-```julia
-# For abbreviated stack traces, loaded later
-ENV["JULIA_STACKTRACE_MINIMAL"] = true
-# Trick to get abbreviated stack traces loaded inside VSCode
-@async begin
-    sleep(3)
-    @eval using Suppressor
-    @eval @suppress using AbbreviatedStackTraces
-end
-```
 
 ## Skipping precompilation for dev'd packages
 It is convenient to skip precompilation if you are actually developing the packages. See [this page for more information](https://julialang.github.io/PrecompileTools.jl/stable/#Package-developers:-reducing-the-cost-of-precompilation-during-development). Here's my setup for `JutulDarcy` that has a long precompilation workload:
